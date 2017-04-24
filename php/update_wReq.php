@@ -84,10 +84,10 @@ $v71 = $_POST['sCompleted'];
 $v72 = $_POST['nameVerified'];
 $v73 = $_POST['sVerified'];
 $v74 = $_POST['dVerified'];
-$v75 = $_POST['dateCompleted'];
-$v76 = $_POST['timeCompleted'];
-$v77 = $_POST['dateVerified'];
-$v78 = $_POST['timeVerified'];
+$v75 = $_POST['datetimeCompleted'];
+//$v76 = $_POST['timeCompleted'];
+$v77 = $_POST['datetimeVerified'];
+//$v78 = $_POST['timeVerified'];
 
 
 $query="UPDATE workrequest SET 
@@ -170,10 +170,8 @@ $query="UPDATE workrequest SET
 	nameVerified='$v72',
 	sVerified='$v73',
 	dVerified='$v74',
-	dateCompleted='$v75',
-	timeCompleted='$v76',
-	dateVerified='$v77',
-	timeVerified='$v78'
+	datetimeCompleted='$v75',
+	datetimeVerified='$v77'
 	WHERE id='$id' ";
 
 $query=mysqli_query($db,$query);

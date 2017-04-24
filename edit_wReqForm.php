@@ -38,7 +38,7 @@ require('php/view_wReqForm.php');
 	<th align="right">Request Date/Time :</th><th><input type="datetime-local" name="reqDateTime" value='<?php echo $dateView ?>' </th>
 </tr>
 <tr>
-	<th align="right">Hospital:</th><th align="left"><input type="text" value='<?php echo $x1 ?>'></th>
+	<th align="right">Hospital:</th><th align="left"><input type="text" name="hospitalName" value='<?php echo $x1 ?>'></th>
 	<th></th><th></th>
 	<th align="right">WR NO :</th><th align="left"><input type="text" name="wrNo" value='<?php echo $w2 ?>'> </th>
 </tr>
@@ -232,11 +232,11 @@ require('php/view_wReqForm.php');
 </tr>
 
 <tr>
-	<th align="right">Date: </th><th align="left"><input type='date' name='dateCompleted' value='<?php echo $v74 ?>'></th>
-	<th align="right">Time: </th><th align="left"><input type='time' name='timeCompleted' value='<?php echo $v75 ?>'></th>
+	<th align="right">Date/Time: </th><th align="left"><input type='datetime-local' name='datetimeCompleted' value='<?php echo $dateView2 ?>'></th>
+	<th align="right">Time: </th><th align="left"><input type='time' name='timeCompleted' value=''></th>
 
-	<th align="right">Date: </th><th align="left"><input type='date' name='dateVerified' value='<?php echo $v76 ?>'></th>
-	<th align="right">Time: </th><th align="left"><input type='time' name='timeVerified' value='<?php echo $v77 ?>'></th>
+	<th align="right">Date/Time: </th><th align="left"><input type='datetime-local' name='datetimeVerified' value='<?php echo $dateView3 ?>'></th>
+	<th align="right">Time: </th><th align="left"><input type='time' name='timeVerified' value=''></th>
 </tr>
 
 </table>

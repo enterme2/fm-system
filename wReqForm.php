@@ -82,7 +82,7 @@
 	<th align="right">Date/Time : </th><th align="left"><input type="datetime-local" name="dTime"></th>
 </tr>
 <tr>
-	<th align="right">Assesment Details : </th>
+	<th align="right">Assessment Details : </th>
 	<th align="left">
 	<textarea rows="4" cols="35" input type="text" name="aDetails"></textarea>
 	</th>

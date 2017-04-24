@@ -100,10 +100,10 @@ $v72 = $_POST['nameVerified'];
 $v73 = $_POST['sVerified'];
 $v74 = $_POST['dVerified'];
 
-$v75 = $_POST['dateCompleted'];
-$v76 = $_POST['timeCompleted'];
-$v77 = $_POST['dateVerified'];
-$v78 = $_POST['timeVerified'];
+$v75 = $_POST['datetimeCompleted'];
+//$v76 = $_POST['timeCompleted'];
+$v77 = $_POST['datetimeVerified'];
+//$v78 = $_POST['timeVerified'];
 /*
 //MissedStart
 	 $x1 = $test['dateDV01'];
@@ -125,7 +125,7 @@ $v83 = $_POST['vJustify'];
 */
 
 // Perform a query, check for error
-$query=mysqli_query($db,"INSERT INTO workrequest (status,reqDateTime,hospitalName,wrNo,requestedBy,jobTitle,Ref,ContactNo,Dept,AssetNo,AssetName,LocationCode,LocationName,WorkGroup,VariationStatus,WorkCategory,ConditionStatus,RequestedDetails,IDName,TargetDate,rSignature,dTime,aDetails,amStatus,lProvided,aInfo,lStartDateTime,lEndDateTime,lReceivedBy,lReturnBy,d1,u1,q1,d2,u2,q2,d3,u3,q3,eNo1,eN1,tC1,date1,sTime1,eTime1,rHour1,eNo2,eN2,tC2,date2,sTime2,eTime2,rHour2,eNo3,eN3,tC3,date3,sTime3,eTime3,rHour3,eNo4,eN4,tC4,date4,sTime4,eTime4,rHour4,dtwS,dtwC,aTaken,esTest,pTest,qcppm,qcuptime,nameCompleted,sCompleted,nameVerified,sVerified,dVerified,dateCompleted,timeCompleted,dateVerified,timeVerified) VALUES ('$x1','$w1','$x2','$w2','$v1','$v2','$w3','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12','$v13','$v14','$v15','$v16','$v17','$v18','$v19','$v20','$v21','$v22','$v23','$v24','$v25','$v26','$v27','$v28','$v29','$v30','$v31','$v32','$v33','$v34','$v35','$v36','$v37','$v38','$v39','$v40','$v41','$v42','$v43','$v44','$v45','$v46','$v47','$v48','$v49','$v50','$v51','$v52','$v53','$v54','$v55','$v56','$v57','$v58','$v59','$v60','$v61','$v62','$v63','$v64','$v65','$v66','$v67','$v68','$v69','$v70','$v71','$v72','$v73','$v74','$v75','$v76','$v77','$v78')");
+$query=mysqli_query($db,"INSERT INTO workrequest (status,reqDateTime,hospitalName,wrNo,requestedBy,jobTitle,Ref,ContactNo,Dept,AssetNo,AssetName,LocationCode,LocationName,WorkGroup,VariationStatus,WorkCategory,ConditionStatus,RequestedDetails,IDName,TargetDate,rSignature,dTime,aDetails,amStatus,lProvided,aInfo,lStartDateTime,lEndDateTime,lReceivedBy,lReturnBy,d1,u1,q1,d2,u2,q2,d3,u3,q3,eNo1,eN1,tC1,date1,sTime1,eTime1,rHour1,eNo2,eN2,tC2,date2,sTime2,eTime2,rHour2,eNo3,eN3,tC3,date3,sTime3,eTime3,rHour3,eNo4,eN4,tC4,date4,sTime4,eTime4,rHour4,dtwS,dtwC,aTaken,esTest,pTest,qcppm,qcuptime,nameCompleted,sCompleted,nameVerified,sVerified,dVerified,datetimeCompleted,datetimeVerified) VALUES ('$x1','$w1','$x2','$w2','$v1','$v2','$w3','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12','$v13','$v14','$v15','$v16','$v17','$v18','$v19','$v20','$v21','$v22','$v23','$v24','$v25','$v26','$v27','$v28','$v29','$v30','$v31','$v32','$v33','$v34','$v35','$v36','$v37','$v38','$v39','$v40','$v41','$v42','$v43','$v44','$v45','$v46','$v47','$v48','$v49','$v50','$v51','$v52','$v53','$v54','$v55','$v56','$v57','$v58','$v59','$v60','$v61','$v62','$v63','$v64','$v65','$v66','$v67','$v68','$v69','$v70','$v71','$v72','$v73','$v74','$v75','$v77')");
 if (!$query)
   {
   echo "Sorry, this website is experiencing problems.";

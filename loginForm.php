@@ -30,7 +30,7 @@ header("location: profile.php");
 <div class="w3-row w3-container">
 
     <div class="w3-col m4 w3-center">
-      <p>&nbsp</p>
+      <p><wbr></p>
     </div>
     <div class="w3-col m4  w3-center w3-card-4 ">
       <p>

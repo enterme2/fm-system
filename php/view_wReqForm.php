@@ -146,12 +146,14 @@ $v70 = $test['nameCompleted'];
 $v71 = $test['sCompleted'];
 $v72 = $test['nameVerified'];
 $v73 = $test['sVerified'];
-$v74 = $test['dateCompleted'];
-$v75 = $test['timeCompleted'];
-if($v75=="00:00:00"){$v75=NULL;}
-$v76 = $test['dateVerified'];
-$v77 = $test['timeVerified'];
-if($v77=="00:00:00"){$v77=NULL;}
+$v74 = $test['datetimeCompleted'];
+$dateView2 = date("Y-m-d\TH:i:s", strtotime($v74));
+//$v75 = $test['timeCompleted'];
+//if($v75=="00:00:00"){$v75=NULL;}
+$v76 = $test['datetimeVerified'];
+$dateView3 = date("Y-m-d\TH:i:s", strtotime($v76));
+//$v77 = $test['timeVerified'];
+//if($v77=="00:00:00"){$v77=NULL;}
 $x5 = $test['dVerified'];
 
 /*
