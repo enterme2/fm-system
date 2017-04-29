@@ -54,7 +54,7 @@ $end = $per_page;
         return false;
     if(!array_key_exists($field, $row))
         return false;
-    if ($field=='reqDateTime') {
+    if ($field=='datetime') {
       return $dateView = date("d-m-Y h:i A", strtotime($row[$field]));
     }
     return $row[$field];
@@ -96,9 +96,9 @@ if ($i == $total_results) { break; }
   	echo '<td>'.$j. '</td>';
 
   	echo '<td>' . mysqli_result($result, $i, 'wrNo') . '</td>';
-    echo '<td>' . mysqli_result($result, $i, 'reqDateTime') . '</td>';
+    echo '<td>' . mysqli_result($result, $i, 'datetime') . '</td>';
   	echo '<td>' . mysqli_result($result, $i, 'status') . '</td>';
-  	echo '<td>' . calculateAging($result, $i, 'reqDateTime') . '</td>';
+  	echo '<td>' . calculateAging($result, $i, 'datetime') . '</td>';
   	echo '<td><a href="edit_wReqForm.php?id=' . mysqli_result($result, $i, 'ID') . '">Edit</a></td>';
   	echo '<td><a href="php/delete_workRequest.php?id=' . mysqli_result($result, $i, 'ID') . '">Delete</a></td>';
     echo "</tr>";

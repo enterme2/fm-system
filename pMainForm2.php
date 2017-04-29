@@ -102,7 +102,7 @@
     <wbr>
     </div>
     <div class="w3-col m3 w3-padding-small">
-    <label>Work No :</label>
+    <label>Work Request No :</label>
     <input class="w3-input w3-border" type="text" name="workNo" required>
     </div>
   </div>
@@ -274,7 +274,7 @@
     </div>
   </div>
 
-<div class="w3-container w3-responsive" id="">
+<div class="w3-container w3-responsive "  id="" style="padding-top: 32px;">
   <table class="w3-table w3-bordered w3-card-4">
   <tr>
     <th>Task No</th>
@@ -286,12 +286,44 @@
 
   <tr class="w3-light-grey">
   <td><input type="text" name="taskNo" class="w3-input w3-border-0"></td>
-  <td><input type="text" name="description" class="w3-input w3-border-0"></td>
+  <td>
+    <textarea class="w3-input w3-border" rows="3" cols="40" input type="text" style="resize: none;" name="description"></textarea>
+  </td>
+
   <td><input type="date" name="targetDate" class="w3-input w3-border-0"></td>
   <td><input type="text" name="next" class="w3-input w3-border-0"></td>
   <td><input type="text" name="statusTask" class="w3-input w3-border-0"></td>
   </tr>
+
   </table>
+</div>
+
+  <div class="w3-row w3-container" style="padding-top: 32px;">
+    <div class="w3-col m4 w3-padding-small">
+      <label>Requested Details:</label>
+      <textarea class="w3-input w3-border" style="resize: none;"  input type="text" name="requestedDetails"></textarea>
+    </div>
+  </div>
+
+  <div class="w3-cell-row w3-padding-small">
+    <div class="w3-cell w3-container">
+    <h3 class="w3-text-teal">Preventive Work Request
+    </h3>
+    </div>
+  </div>
+
+  <div class="w3-row w3-container" style="padding-top: 32px;">
+    <div class="w3-col m4 w3-padding-small">
+      <label>Contract/Warranty Information:</label>
+      <input type="text" name="cWarrantyInformation" class="w3-input w3-border">
+    </div>
+    <div class="w3-col m1 w3-padding-small">
+      <wbr>
+    </div>
+    <div class="w3-col m3 w3-padding-small">
+      <label>Contractor/Company Name:</label>
+      <input type="text" name="cCompanyName" class="w3-input w3-border">
+    </div>
   </div>
 
 <div class="w3-container w3-center w3-padding-64">

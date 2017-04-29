@@ -1,251 +1,205 @@
-<?php
-
-require('php/view_wReqForm.php');
-?>
-
- <!DOCTYPE html>
-
-
+<?php require('php/view_wReqForm.php');?>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Work Request Edit</title>
-<link href="css/mystyle.css" rel="stylesheet" type="text/css">
+<title>Work Request</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/w3-theme-blue.css">
+<link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" href="css/mystyle.css">
 
 </head>
 <body>
 
-<center><h1>Work Request (FEMS)</h1></center>
 
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">AWS</a>
+    <a href="#" class="w3-bar-item w3-button w3-hover-white w3-mobile w3-hide-small">Home</a>
+    <a href="php/logout.php" class="w3-bar-item w3-button w3-hover-white w3-right w3-theme-l1">Logout</a>
+  </div>
+
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Work Request
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a class="w3-bar-item w3-button w3-hover-black" href="wReqForm.php">Add Work Request</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="showAll_wRequest.php?page=1">Show Work Request</a>
+    </div>
+  </div> 
+
+    <div class="w3-dropdown-hover">
+    <button class="w3-button">Preventive <br>Maintenance
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a class="w3-bar-item w3-button w3-hover-black" href="pMainForm.php">Add Preventive Maintenance Work</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="showAll_pMaintenance.php">Show Preventive Maintenance Work</a>
+    </div>
+  </div> 
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!--content-->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-cell-row " style="padding-top: 64px;">
+    <div class="w3-cell w3-container">
+    <h2 class="w3-text-teal w3-center">Work Request (FEMS)</h2>
+    </div>
+  </div>
 <form action="php/update_wReq.php" method="post">
+  <div class="w3-row w3-container">
 
-<input type="hidden" name="id" value="<?php echo $id; ?>"/>
-<table>
-<tr>
-	<th></th><th></th>
-	<th></th><th></th>
-	<th align="right">Status :</th>
-	<th align="left">  
-	<select name="status">
-    <option value="Open" <?php echo $selected1 ?> >Open</option>
-    <option value="Pending" <?php echo $selected2 ?> >Pending</option>
-    <option value="Closed" <?php echo $selected3 ?> >Closed</option>
-  	</select> 
-  	</th>
-</tr>
-<tr>
-	<th></th><th></th>
-	<th></th><th></th>
-	<th align="right">Request Date/Time :</th><th><input type="datetime-local" name="reqDateTime" value='<?php echo $dateView ?>' </th>
-</tr>
-<tr>
-	<th align="right">Hospital:</th><th align="left"><input type="text" name="hospitalName" value='<?php echo $x1 ?>'></th>
-	<th></th><th></th>
-	<th align="right">WR NO :</th><th align="left"><input type="text" name="wrNo" value='<?php echo $w2 ?>'> </th>
-</tr>
-<tr><th><b>A. <u>Work Request</b></u></th></tr>
-<tr><th></th></tr>
-<tr>
-	<th align="right">Requested by :</th><th align="left"><input type='text' name='RequestedBy' value='<?php echo $v1 ?>'</th>
-	<th align="right">Job Title :</th><th align="left"><input type='text' name='JobTitle' value='<?php echo $v2 ?>'> </th>
-	<th align="right">Ref :</th><th align="left"><input type='text' name='Ref' value='<?php echo $w3 ?>'> </th>
-</tr>
-<tr>
-	<th align="right">Contact No :</th><th align="left"><input type='text' name='ContactNo' value='<?php echo $v3 ?>' ></th>
-	<th align="right">Dept :</th><th align="left"><input type='text' name='Dept' value='<?php echo $v4 ?>'></th>
-</tr>
-<tr>
-	<th align="right">AssetNo : </th><th align="left"><input type='text' name='AssetNo' value='<?php echo $v5 ?>'></th>
-	<th align="right">Asset name : </th>
-	<th align="left">
-	<textarea rows="2" cols="30" input type="text" name="AssetName"><?php echo $v6 ?></textarea>
-	</th>
-</tr>
-<tr>
-	<th align="right">Location Code :</th><th align="left"> <input type='text' name='LocationCode' value='<?php echo $v7 ?>'></th>
-	<th align="right">Location Name :</th><th align="left"> <input size="30" type='text' name='LocationName' value='<?php echo $v8 ?>'></th>
-</tr>
-<tr>
-	<th align="right">Work Group : </th><th align="left"><input type='text' name='WorkGroup' value='<?php echo $v9 ?>'></th>
-	<th align="right">Variation Status : </th><th align="left"><input type='text' name='VariationStatus' value='<?php echo $v10 ?>'></th>
-</tr>
-<tr>
-	<th align="right">Work Category : </th><th align="left"><input type='text' name='WorkCategory' value='<?php echo $v11 ?>'></th>
-	<th align="right">Condition Status : </th><th align="left"><input type='text' name='ConditionStatus' value='<?php echo $v12 ?>'></th>
-</tr>
-<tr>
-	<th align="right">Requested Details : </th>
-	<th align="left">
-	<textarea rows="4" cols="35" input type="text" name="RequestedDetails"><?php echo $v13 ?></textarea>
-	</th>
-</tr>
-<tr><th></th></tr>
-<tr><th><b>B. <u>Assessment </b></u></th></tr>
-<tr><th></th></tr>
-<tr>
-	<th align="right">ID/Name : </th><th align="left"><input type='text' name='IDName' value='<?php echo $v14 ?>'></th>
-	<th align="right">Target Date : </th><th align="left"><input type='date' name='TargetDate' value='<?php echo $v15 ?>'></th>
-</tr>
-<tr>
-	<th align="right">Requestor Signature : </th><th align="left"><input type='text' name='rSignature' value='<?php echo $v16 ?>'></th>
-	<th align="right">Date/Time : </th><th align="left"><input type='datetime-local' name='dTime' value='<?php echo $v17 ?>'></th>
-</tr>
-<tr>
-	<th align="right">Assesment Details : </th>
-	<th align="left">
-	<textarea rows="4" cols="35" input type="text" name="aDetails"><?php echo $v18 ?></textarea>
-	</th>
-</tr>
-<tr>
-	<th align="right">Assessment Maint Status : </th><th align="left"><input type='text' name='amStatus' value='<?php echo $v19 ?>'></th>
-	<th align="right">Loaner Provided : </th><th align="left"><input type='text' name='lProvided' value='<?php echo $v20 ?>'></th>
-</tr>
-<tr>
-	<th>Loaner Info</th>
-	<th align="right">Asset Info - </th><th align="left"><input type='text' name='aInfo' value='<?php echo $v21 ?>'></th>
-</tr>
-<tr>
-	<th></th>
-	<th align="right">Loaner Start Date/Time : </th><th><input type='datetime-local' name='lStartDateTime' value='<?php echo $v22 ?>'></th>
-	<th align="right">Loaner End Date/Time : </th><th><input type='datetime-local' name='lEndDateTime' value='<?php echo $v23 ?>'></th>
-</tr>
-<tr>
-	<th></th>
-	<th align="right">Loaner Received By : </th><th><input type='text' name='lReceivedBy' value='<?php echo $v24 ?>'></th>
-	<th align="right">Loaner Return By : </th><th><input type='text' name='lReturnBy' value='<?php echo $v25 ?>'></th>
-</tr>
-<tr><th></th></tr>
-<tr><th><b>C. <u>Part Details</b></u></th></tr>
-<tr><th></th></tr>
-<tr>
-	<th>Description</th>
-	<th>UoM</th>
-	<th>Qty used(U)/Returned(Rt)</th>
-</tr>
-<tr>
-	<th class="thin">
-	<textarea rows="2" cols="30" input type="text" name="d1"><?php echo $v26 ?></textarea>
-	</th>
-	<th class="thin"><input class="noborder" type='text' name='u1' value='<?php echo $v27 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='q1' value='<?php echo $v28 ?>'></th>
-</tr>
-<tr>
-	<th class="thin">
-	<textarea rows="2" cols="30" input type="text" name="d2"><?php echo $v29 ?></textarea>
-	</th>
-	<th class="thin"><input class="noborder" type='text' name='u2' value='<?php echo $v30 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='q2' value='<?php echo $v31 ?>'></th>
-</tr>
-<tr>
-	<th class="thin">
-	<textarea rows="2" cols="30" input type="text" name="d3"><?php echo $v32 ?></textarea>
-	</th>
-	<th class="thin"><input class="noborder" type='text' name='u3' value='<?php echo $v33 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='q3' value='<?php echo $v34 ?>'></th>
-</tr>
-<tr><th></th></tr>
-<tr><th><b>D. <u>Employee</b></u></th></tr>
-<tr><th></th></tr>
-<tr>
-	<th>Employee No</th>
-	<th>Employee Name</th>
-	<th>Task Code</th>
-	<th>Date</th>
-	<th>Start Time</th>
-	<th>End Time</th>
-	<th>Repair Hours</th>
-</tr>
-<tr class="thin">
-	<th class="thin"><input class="noborder" type='text' name='eNo1' value='<?php echo $v35 ?>'></th>
-	<th class="thin"><input size="35" class="noborder" type='text' name='eN1'  value='<?php echo $v36 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='tC1' value='<?php echo $v37 ?>'></th>
-	<th class="thin"><input class="noborder" type='date' name='date1' value='<?php echo $v38 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='sTime1' value='<?php echo $v39 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='eTime1' value='<?php echo $v40 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='rHour1' value='<?php echo $v41 ?>'></th>
-</tr>
-<tr class="thin">
-	<th class="thin"><input class="noborder" type='text' name='eNo2' value='<?php echo $v42 ?>'></th>
-	<th class="thin"><input size="35" class="noborder" type='text' name='eN2' value='<?php echo $v43 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='tC2' value='<?php echo $v44 ?>'></th>
-	<th class="thin"><input class="noborder" type='date' name='date2' value='<?php echo $v45 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='sTime2' value='<?php echo $v46 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='eTime2' value='<?php echo $v47 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='rHour2' value='<?php echo $v48 ?>'></th>
-</tr>
-<tr>
-	<th class="thin"><input class="noborder" type='text' name='eNo3' value='<?php echo $v49 ?>'></th>
-	<th class="thin"><input size="35" class="noborder" type='text' name='eN3' value='<?php echo $v50 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='tC3' value='<?php echo $v51 ?>'></th>
-	<th class="thin"><input class="noborder" type='date' name='date3' value='<?php echo $v52 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='sTime3' value='<?php echo $v53 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='eTime3' value='<?php echo $v54 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='rHour3' value='<?php echo $v55 ?>'></th>
-</tr>
-<tr class="thin">
-	<th class="thin"><input class="noborder" type='text' name='eNo4' value='<?php echo $v56 ?>'></th>
-	<th class="thin"><input size="35" class="noborder" type='text' name='eN4' value='<?php echo $v57 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='tC4' value='<?php echo $v58 ?>'></th>
-	<th class="thin"><input class="noborder" type='date' name='date4' value='<?php echo $v59 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='sTime4' value='<?php echo $v60 ?>'></th>
-	<th class="thin"><input class="noborder" type='time' name='eTime4' value='<?php echo $v61 ?>'></th>
-	<th class="thin"><input class="noborder" type='text' name='rHour4' value='<?php echo $v62 ?>'></th>
-</tr>
-<tr><th></th></tr>
-<tr><th><b>E. <u>Completion</b></u></th></tr>
-<tr><th></th></tr>
-<tr>
-	<th align="right">Date/Time Work Started : </th><th align="left"><input type='datetime-local' name='dtwS' value='<?php echo $v63 ?>'></th>
-	<th align="right">Date/Time Work Completed : </th><th align="left"><input type='datetime-local' name='dtwC' value='<?php echo $v64 ?>'></th>
-</tr>
-<tr>
-	<th align="right">Action Taken </th>
-	<th align="left">
-	<textarea rows="4" cols="35" input type="text" name="aTaken"><?php echo $v65 ?></textarea>
-	<!--<input type='text' name='aTaken' value='<?php //echo $v65 ?>'> -->
-	</th>
-</tr>
-<tr>
-	<th align="right">Electrical Safety Test </th><th align="left"><input type='text' name='esTest' value='<?php echo $v66 ?>'></th>
-	<th align="right">Performance Test </th><th align="left"><input type='text' name='pTest' value='<?php echo $v67 ?>'></th>
-</tr>
-<tr>
-	<th align="right">QC PPM </th><th align="left"><input type='text' name='qcppm' value='<?php echo $v68 ?>'></th>
-	<th align="right">QC Uptime </th><th align="left"><input type='text' name='qcuptime' value='<?php echo $v69 ?>'></th>
-</tr>
-<tr><th></th></tr>
-<tr>
-	<th colspan='4'>Completed By (SSB) </th>
-	<th colspan='4'>Verified By (MoH) </th>
-</tr>
-<tr><th></th></tr>
-<tr>
-	<th align="right">Name: </th><th align="left"><input type='text' name='nameCompleted' value='<?php echo $v70 ?>'></th>
-	<th align="right">Signature: </th><th align="left"><input type='text' name='sCompleted' value='<?php echo $v71 ?>'></th>
+    <div class="w3-col m8 w3-padding-small"><wbr></div>
 
-	<th align="right">Name: </th><th align="left"><input type='text' name='nameVerified' value='<?php echo $v72 ?>'></th>
-	<th align="right">Signature: </th><th align="left"><input type='text' name='sVerified' value='<?php echo $v73 ?>'></th>
-</tr>
-<tr>
-	<th></th><br><th></th>
-	<th></th><br><th></th>
-	<th align="right">Designation: </th><th align="left"><input type='text' name='dVerified' value='<?php echo $x5 ?>'></th>	
-</tr>
+    <div class="w3-col m2 w3-padding-small">
+      <label> Status :</label>
+      <select class="w3-select w3-border" name="status">
+      <option value="Open" <?php echo $selected1 ?>>Open</option>
+      <option value="Pending" <?php echo $selected2 ?>>Pending</option>
+      <option value="Closed" <?php echo $selected3 ?>>Closed</option>
+    </select> 
+    </div>
+  </div>
 
-<tr>
-	<th align="right">Date/Time: </th><th align="left"><input type='datetime-local' name='datetimeCompleted' value='<?php echo $dateView2 ?>'></th>
-	<th align="right">Time: </th><th align="left"><input type='time' name='timeCompleted' value=''></th>
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m2 w3-padding-small">
+      <label> Hospital :</label>
+      <input class="w3-input w3-border" type="text" name="hospital" required value='<?php echo $hospital ?>'>  
+    </div>
 
-	<th align="right">Date/Time: </th><th align="left"><input type='datetime-local' name='datetimeVerified' value='<?php echo $dateView3 ?>'></th>
-	<th align="right">Time: </th><th align="left"><input type='time' name='timeVerified' value=''></th>
-</tr>
+    <div class="w3-col m3 w3-padding-small">
+      <wbr>
+    </div>
 
-</table>
-<br>
-<center>
-<input type="submit" name="update" value="Update"> &nbsp&nbsp
-<button type="button" onclick="window.location='showAll_wRequest.php'">Cancel</button>
-</center>
+    <div class="w3-col m3 w3-padding-small">
+      <label> Work Request No :</label>
+      <input class="w3-input w3-border" type="text" name="wrNo" required value='<?php echo $wrNo ?>'>  
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m2 w3-padding-small">
+      <label> Target Date :</label>
+      <input class="w3-input w3-border" type="date" name="targetDate" style="width: 180px" value='<?php echo $targetDate ?>'>  
+    </div>
+
+    <div class="w3-col m3 w3-padding-small">
+      <wbr>
+    </div>
+
+    <div class="w3-col m3 w3-padding-small">
+      <label> Date/Time :</label>
+      <input class="w3-input w3-border" type="datetime-local" name="datetime" value='<?php echo $datetimeView ?>'>  
+    </div>
+  </div>
+
+  <div class="w3-row w3-container" style="padding-top: 16px">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m3 w3-padding-small">
+      <label> Requestor :</label>
+      <input class="w3-input w3-border" type="text" name="requestor" required value='<?php echo $requestor ?>'>  
+    </div>
+
+    <div class="w3-col m3 w3-padding-small">
+      <label> Category :</label>
+      <input class="w3-input w3-border" type="text" name="category" value='<?php echo $category ?>'>  
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m3 w3-padding-small">
+      <label> Asset No :</label>
+      <input class="w3-input w3-border" type="text" name="assetNo" value='<?php echo $assetNo ?>'>  
+    </div>
+
+    <div class="w3-col m2 w3-padding-small">
+      <label> Workgroup :</label>
+      <input class="w3-input w3-border" type="text" name="workgroup" value='<?php echo $workgroup ?>'>  
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m4 w3-padding-small">
+      <label> Details :</label>
+      <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="details"><?php echo $details ?></textarea>
+    </div>
+    <div class="w3-col m4 w3-padding-small">
+      <label> Action Taken :</label>
+      <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="actionTaken"><?php echo $actionTaken ?></textarea>
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m3 w3-padding-small">
+      <label> Start Date/Time :</label>
+      <input class="w3-input w3-border" type="datetime-local" name="startDatetime" value='<?php echo $startdatetimeView ?>'>  
+    </div>
+
+    <div class="w3-col m3 w3-padding-small">
+      <label> End Date/Time :</label>
+      <input class="w3-input w3-border" type="datetime-local" name="endDatetime" value='<?php echo $enddatetimeView ?>'>  
+    </div>
+    <div class="w3-col m3 w3-padding-small">
+      <label> Actual Closed Date :</label>
+      <input class="w3-input w3-border" type="date" name="actualclosedDate" style="width: 180px" value='<?php echo $actualclosedDate ?>'>  
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m4 w3-padding-small">
+      <label> Justification Outstanding :</label>
+      <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="justificationOutstanding" value='<?php echo $justificationOutstanding ?>'></textarea>
+    </div>
+  </div>
+
+  <div class="w3-row w3-container" style="padding-top: 32px">
+    <div class="w3-col m4 w3-padding-small"><wbr></div>
+    <div class="w3-col m2 w3-padding-small">
+    <input class="w3-button w3-round w3-theme w3-hover-aqua w3-padding-large w3-block" type="submit" name="Add" value="Save"> 
+    </div>
+    <div class="w3-col m2 w3-padding-small">
+    <button class="w3-button w3-round w3-theme w3-hover-aqua w3-padding-large w3-block" onclick="window.location='profile.php'">Cancel</button>
+    </div>
+  </div>
+
 </form>
 
+</div>
+
+<div class="w3-container w3-center w3-padding-64">
+
+ 
+
+</div>
+</form>
+
+
+
+
+<script src="js/sidebar.js"></script>
+<script src="js/togglecontent.js"></script>
 </body>
-</html> 
+</html>
