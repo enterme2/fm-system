@@ -107,7 +107,7 @@
 
     <div class="w3-col m3 w3-padding-small">
       <label> Date/Time :</label>
-      <input class="w3-input w3-border" type="datetime-local" name="datetime"> 
+      <input class="w3-input w3-border" type="datetime-local" name="datetime" novalidate> 
     </div>
   </div>
 
@@ -128,7 +128,7 @@
     <div class="w3-col m2 w3-padding-small"><wbr></div>
     <div class="w3-col m3 w3-padding-small">
       <label> Asset No :</label>
-      <input class="w3-input w3-border" type="text" name="assetNo">  
+      <input class="w3-input w3-border" type="text" name="assetNo" required>  
     </div>
 
     <div class="w3-col m2 w3-padding-small">
@@ -175,28 +175,22 @@
   </div>
 
   <div class="w3-row w3-container" style="padding-top: 32px">
-    <div class="w3-col m4 w3-padding-small"><wbr></div>
+    <div class="w3-col m3 w3-padding-small"><wbr></div>
     <div class="w3-col m2 w3-padding-small">
     <input class="w3-button w3-round w3-theme w3-hover-aqua w3-padding-large w3-block" type="reset" name="reset" value="Reset"> 
     </div>
     <div class="w3-col m2 w3-padding-small">
     <input class="w3-button w3-round w3-theme w3-hover-aqua w3-padding-large w3-block" type="submit" name="Add" value="Save"> 
     </div>
+</form>
     <div class="w3-col m2 w3-padding-small">
     <button class="w3-button w3-round w3-theme w3-hover-aqua w3-padding-large w3-block" onclick="window.location='profile.php'">Cancel</button>
     </div>
   </div>
 
-</form>
 
 </div>
 
-<div class="w3-container w3-center w3-padding-64">
-
- 
-
-</div>
-</form>
 
 
 

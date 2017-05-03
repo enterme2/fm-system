@@ -36,6 +36,8 @@ endDatetime = '$endDatetime',
 actionTaken = '$actionTaken',
 actualclosedDate = '$actualclosedDate',
 justificationOutstanding = '$justificationOutstanding'
+
+
 WHERE ID='$id' ";
 
 $query=mysqli_query($db,$query);

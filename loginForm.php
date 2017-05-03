@@ -29,10 +29,10 @@ header("location: profile.php");
 
 <div class="w3-row w3-container">
 
-    <div class="w3-col m4 w3-center">
+    <div class="w3-col m5 w3-center">
       <p><wbr></p>
     </div>
-    <div class="w3-col m4  w3-center w3-card-4 ">
+    <div class="w3-col m3  w3-center w3-card-4 ">
       <p>
       	<form action="" method="post">
       	<div class="w3-padding-16"></div>

@@ -64,6 +64,7 @@
     </div>
   </div>
 <form action="php/update_wReq.php" method="post">
+<input type="hidden" name="id" value="<?php echo $id; ?>"/>
   <div class="w3-row w3-container">
 
     <div class="w3-col m8 w3-padding-small"><wbr></div>
@@ -180,12 +181,12 @@
     <div class="w3-col m2 w3-padding-small">
     <input class="w3-button w3-round w3-theme w3-hover-aqua w3-padding-large w3-block" type="submit" name="Add" value="Save"> 
     </div>
+</form>
     <div class="w3-col m2 w3-padding-small">
     <button class="w3-button w3-round w3-theme w3-hover-aqua w3-padding-large w3-block" onclick="window.location='profile.php'">Cancel</button>
     </div>
   </div>
 
-</form>
 
 </div>
 
