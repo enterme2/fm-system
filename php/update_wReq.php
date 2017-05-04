@@ -4,7 +4,8 @@ require('connect.php');
 $id = $_POST['id'];
 $hospital = $_POST['hospital'];
 $wrNo = $_POST['wrNo'];
-$datetime = $_POST['datetime'];
+$dateRequested = $_POST['dateRequested'];
+$timeRequested = $_POST['timeRequested'];
 $targetDate = $_POST['targetDate'];
 //$ageing = $_POST['ageing'];
 $status = $_POST['status'];
@@ -23,7 +24,8 @@ $justificationOutstanding = $_POST['justificationOutstanding'];
 $query="UPDATE workrequest SET 
 hospital = '$hospital',
 wrNo = '$wrNo',
-datetime = '$datetime',
+dateRequested = '$dateRequested',
+timeRequested = '$timeRequested',
 targetDate = '$targetDate',
 status = '$status',
 requestor = '$requestor',
@@ -36,7 +38,6 @@ endDatetime = '$endDatetime',
 actionTaken = '$actionTaken',
 actualclosedDate = '$actualclosedDate',
 justificationOutstanding = '$justificationOutstanding'
-
 
 WHERE ID='$id' ";
 

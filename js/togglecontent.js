@@ -1,3 +1,20 @@
+function showJustification(){
+    
+    var status = document.getElementById('status');
+    var value = status.options[status.selectedIndex].value;
+    //alert(value);
+    var justificationInput = document.getElementById('pendingInput');
+    if(value=="Pending")
+    {
+      justificationInput.style.display="block";
+    }
+    else
+    {
+        justificationInput.style.display="none";
+    }
+  }
+
+/*
 function toggle(showHideDiv, switchIcon) {
         var ele = document.getElementById(showHideDiv);
         var iconEle = document.getElementById(switchIcon);
@@ -61,3 +78,4 @@ function toggleAll(showHideDiv,showHideDiv2,showHideDiv3,showHideDiv4,showHideDi
                 iconEle.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>';
         }
 }
+*/

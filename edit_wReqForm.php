@@ -20,7 +20,7 @@
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
     <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">AWS</a>
     <a href="#" class="w3-bar-item w3-button w3-hover-white w3-mobile w3-hide-small">Home</a>
-    <a href="php/logout.php" class="w3-bar-item w3-button w3-hover-white w3-right w3-theme-l1">Logout</a>
+    <a href="php/logout.php" class="w3-bar-item w3-button w3-hover-white w3-right w3-theme-l1">Logout </a>
   </div>
 
 </div>
@@ -49,7 +49,17 @@
       <a class="w3-bar-item w3-button w3-hover-black" href="pMainForm.php">Add Preventive Maintenance Work</a>
       <a class="w3-bar-item w3-button w3-hover-black" href="showAll_pMaintenance.php">Show Preventive Maintenance Work</a>
     </div>
-  </div> 
+  </div>
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Complaint
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a class="w3-bar-item w3-button w3-hover-black" href="complaintForm.php">Add Complaint</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="showAll_complaint.php">Show Complaint</a>
+    </div>
+  </div>   
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -71,7 +81,7 @@
 
     <div class="w3-col m2 w3-padding-small">
       <label> Status :</label>
-      <select class="w3-select w3-border" name="status">
+      <select class="w3-select w3-border" id="status" name="status" onchange="showJustification();" >
       <option value="Open" <?php echo $selected1 ?>>Open</option>
       <option value="Pending" <?php echo $selected2 ?>>Pending</option>
       <option value="Closed" <?php echo $selected3 ?>>Closed</option>
@@ -98,22 +108,24 @@
 
   <div class="w3-row w3-container">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
+
+    <div class="w3-col m3 w3-padding-small">
+      <label> Date </label>
+      <input class="w3-input w3-border" type="date" name="dateRequested" value='<?php echo $dateRequested ?>'> 
+    </div>
+
     <div class="w3-col m2 w3-padding-small">
+      <label> Time Requested :</label>
+      <input class="w3-input w3-border" type="time" name="timeRequested" value='<?php echo $timeRequested ?>'> 
+    </div>
+    <div class="w3-col m3 w3-padding-small">
       <label> Target Date :</label>
-      <input class="w3-input w3-border" type="date" name="targetDate" style="width: 180px" value='<?php echo $targetDate ?>'>  
+      <input class="w3-input w3-border" type="date" name="targetDate" value='<?php echo $targetDate ?>'>  
     </div>
 
-    <div class="w3-col m3 w3-padding-small">
-      <wbr>
-    </div>
-
-    <div class="w3-col m3 w3-padding-small">
-      <label> Date/Time :</label>
-      <input class="w3-input w3-border" type="datetime-local" name="datetime" value='<?php echo $datetimeView ?>'>  
-    </div>
   </div>
 
-  <div class="w3-row w3-container" style="padding-top: 16px">
+  <div class="w3-row w3-container">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
     <div class="w3-col m3 w3-padding-small">
       <label> Requestor :</label>
@@ -173,6 +185,15 @@
     <div class="w3-col m4 w3-padding-small">
       <label> Justification Outstanding :</label>
       <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="justificationOutstanding" value='<?php echo $justificationOutstanding ?>'></textarea>
+    </div>
+    <div class="w3-col m3 w3-padding-small" id="pendingInput" style="display: none;">
+      <label> Pending Justification :</label>
+      <select class="w3-select w3-border" name="pendingJustification">
+      <option value="" selected>Select Justification</option>
+      <option value="Parts">Parts</option>
+      <option value="Vendor">Vendor</option>
+      <option value="CA/BER Report">CA/BER Report</option>
+    </select> 
     </div>
   </div>
 

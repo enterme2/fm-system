@@ -4,7 +4,8 @@ include('connect.php');
 
 $hospital = $_POST['hospital'];
 $wrNo = $_POST['wrNo'];
-$datetime = $_POST['datetime'];
+$dateRequested = $_POST['dateRequested'];
+$timeRequested = $_POST['timeRequested'];
 $targetDate = $_POST['targetDate'];
 //$ageing = $_POST['ageing'];
 $status = $_POST['status'];
@@ -21,7 +22,7 @@ $justificationOutstanding = $_POST['justificationOutstanding'];
 
 
 // Perform a query, check for error
-$action="INSERT INTO workrequest (hospital,wrNo,datetime,targetDate,status,requestor,category,assetNo,workgroup,details,startDatetime,endDatetime,actionTaken,actualclosedDate,justificationOutstanding) VALUES ('$hospital','$wrNo','$datetime','$targetDate','$status','$requestor','$category','$assetNo','$workgroup','$details','$startDatetime','$endDatetime','$actionTaken','$actualclosedDate','$justificationOutstanding')";
+$action="INSERT INTO workrequest (hospital,wrNo,dateRequested,timeRequested,targetDate,status,requestor,category,assetNo,workgroup,details,startDatetime,endDatetime,actionTaken,actualclosedDate,justificationOutstanding) VALUES ('$hospital','$wrNo','$dateRequested','$timeRequested','$targetDate','$status','$requestor','$category','$assetNo','$workgroup','$details','$startDatetime','$endDatetime','$actionTaken','$actualclosedDate','$justificationOutstanding')";
 
 $query=mysqli_query($db,$action);
 if (!$query)

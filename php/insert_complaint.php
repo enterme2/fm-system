@@ -1,0 +1,54 @@
+<?php
+
+include('connect.php');
+
+
+$hospital = $_POST['hospital'];
+$complaintNo = $_POST['complaintNo'];
+$dateRequested = $_POST['dateRequested'];
+$timeRequested = $_POST['timeRequested'];
+$reference = $_POST['reference'];
+$complaintDetails = $_POST['complaintDetails'];
+$actionTaken = $_POST['actionTaken'];
+$name = $_POST['name'];
+$dateCompleted = $_POST['dateCompleted'];
+$status = $_POST['status'];
+
+
+// Perform a query, check for error
+$action="INSERT INTO complaint (
+hospital,
+complaintNo,
+dateRequested,
+timeRequested,
+reference,
+complaintDetails,
+actionTaken,
+name,
+dateCompleted,
+status
+) VALUES ('$hospital',
+'$complaintNo',
+'$dateRequested',
+'$timeRequested',
+'$reference',
+'$complaintDetails',
+'$actionTaken',
+'$name',
+'$dateCompleted',
+'$status')";
+
+$query=mysqli_query($db,$action);
+if (!$query)
+  {
+  echo "Sorry, this website is experiencing problems.";
+
+  //remove this later
+  echo("Error description: " . mysqli_error($db));
+  }
+else{
+mysqli_free_result($query);
+mysqli_close($db);
+header("Location:../profile.php");
+}
+?>

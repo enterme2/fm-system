@@ -1,7 +1,8 @@
 <?php
-include('php/connect.php');
+include('connect.php');
 session_start(); // Starting Session
-$error=''; // Variable To Store Error Message
+$error=NULL; // Variable To Store Error Message
+
 if (isset($_POST['submit'])) 
 	{
 	if (empty($_POST['username']) || empty($_POST['password'])) 
@@ -30,7 +31,9 @@ if (isset($_POST['submit']))
 	$_SESSION['login_user']=$username; // Initializing Session
 	header("location: profile.php"); // Redirecting To Other Page
 	} else {
+
 	$error = "Username or Password is invalid";
+	echo "<script type='text/javascript'>alert('$error');</script>";
 	}
 	mysqli_close($db); // Closing Connection
 	}

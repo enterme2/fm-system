@@ -58,11 +58,11 @@ $status = $test['status'];
 
 $hospital = $test['hospital'];
 $wrNo = $test['wrNo'];
-$datetime = $test['datetime'];
-$datetimeView = date("Y-m-d\TH:i:s", strtotime($datetime));
+$dateRequested = $test['dateRequested'];
+$timeRequested = $test['timeRequested'];
+if($timeRequested=="00:00:00"){$timeRequested=NULL;}
 
 $targetDate = $test['targetDate'];
-//$ageing = $test['ageing'];
 $status = $test['status'];
 $requestor = $test['requestor'];
 $category = $test['category'];

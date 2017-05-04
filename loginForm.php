@@ -39,7 +39,7 @@ header("location: profile.php");
       	<input class="w3-input " id="name" name="username" placeholder="Username" style="text-align:center" type="text">
       	<input class="w3-input " id="password" name="password" placeholder="Password" style="text-align:center" type="password">
       	<span><p class="w3-text-red"><?php echo $error; ?></p></span>
-      	
+  
       	<input class="w3-button w3-round w3-theme w3-hover-aqua w3-block " name="submit" type="submit" value=" Login ">
       	<div class="w3-padding-16"></div>
       </p>

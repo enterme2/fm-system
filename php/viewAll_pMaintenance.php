@@ -67,7 +67,10 @@ $end = $per_page;
       else{
       //return $dateView = date("d-M-Y", strtotime($row[$field]));
         $dateView = date("d-M-Y", strtotime($row[$field]));
-        $timeView = date("h:i A", strtotime($row[$field2]));
+        if($row[$field2]=="00:00:00")
+          {$timeView="";}
+        else{$timeView = date("h:i A", strtotime($row[$field2]));}
+        
         $string = $dateView. ' ' .$timeView;
         return $string;
       }

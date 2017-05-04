@@ -46,7 +46,7 @@ $end = $per_page;
 }
 
 //Alternative to mysql_result()
-  function mysqli_result($result, $iRow, $field = 0)
+function mysqli_result($result, $iRow, $field = 0,$field2 = 0)
 {
     if(!mysqli_data_seek($result, $iRow))
         return false;
@@ -54,8 +54,21 @@ $end = $per_page;
         return false;
     if(!array_key_exists($field, $row))
         return false;
-    if ($field=='datetime') {
-      return $dateView = date("d-m-Y h:i A", strtotime($row[$field]));
+    if ($field=='dateRequested') {
+      if($row[$field]=="0000-00-00" || $row[$field]==NULL)
+        { $dateNotSet="Not specified";
+          return $dateNotSet;
+        }
+      else{
+      //return $dateView = date("d-M-Y", strtotime($row[$field]));
+        $dateView = date("d-M-Y", strtotime($row[$field]));
+        if($row[$field2]=="00:00:00")
+          {$timeView="";}
+        else{$timeView = date("h:i A", strtotime($row[$field2]));}
+        
+        $string = $dateView. ' ' .$timeView;
+        return $string;
+        }
     }
     return $row[$field];
 }
@@ -69,10 +82,17 @@ $end = $per_page;
     if(!array_key_exists($field, $row))
         return false;
 
+    if($row[$field]=="0000-00-00")
+      { 
+        $dateNotSet="";
+        return $dateNotSet;
+      }
+    else {
     date_default_timezone_set("Asia/Kuala_Lumpur");
-    $current=date('d-m-Y H:i:s');
+    $current=date('d-M-Y H:i:s');
     $days = (strtotime($current) - strtotime($row[$field])) / (60 * 60 * 24);
     return ceil($days);
+    }
 }
 
 
@@ -96,9 +116,9 @@ if ($i == $total_results) { break; }
   	echo '<td>'.$j. '</td>';
 
   	echo '<td>' . mysqli_result($result, $i, 'wrNo') . '</td>';
-    echo '<td>' . mysqli_result($result, $i, 'datetime') . '</td>';
+    echo '<td>' . mysqli_result($result, $i, 'dateRequested','timeRequested') . '</td>';
   	echo '<td>' . mysqli_result($result, $i, 'status') . '</td>';
-  	echo '<td>' . calculateAging($result, $i, 'datetime') . '</td>';
+  	echo '<td>' . calculateAging($result, $i, 'dateRequested') . '</td>';
   	echo '<td><a href="edit_wReqForm.php?id=' . mysqli_result($result, $i, 'ID') . '">Edit</a></td>';
   	echo '<td><a href="php/delete_workRequest.php?id=' . mysqli_result($result, $i, 'ID') . '">Delete</a></td>';
     echo "</tr>";

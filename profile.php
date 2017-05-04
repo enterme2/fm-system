@@ -41,7 +41,7 @@ include('php/session.php');
     </div>
   </div> 
 
-    <div class="w3-dropdown-hover">
+  <div class="w3-dropdown-hover">
     <button class="w3-button">Preventive <br>Maintenance
       <i class="fa fa-caret-down"></i>
     </button>
@@ -49,7 +49,17 @@ include('php/session.php');
       <a class="w3-bar-item w3-button w3-hover-black" href="pMainForm.php">Add Preventive Maintenance Work</a>
       <a class="w3-bar-item w3-button w3-hover-black" href="showAll_pMaintenance.php">Show Preventive Maintenance Work</a>
     </div>
-  </div> 
+  </div>
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Complaint
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a class="w3-bar-item w3-button w3-hover-black" href="complaintForm.php">Add Complaint</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="showAll_complaint.php">Show Complaint</a>
+    </div>
+  </div>  
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
