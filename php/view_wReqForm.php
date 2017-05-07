@@ -31,29 +31,30 @@ if (!$result)
 
 $status = $test['status'];
 //to view status
-    if($status=="")
-    {
-        $selected1="";
-        $selected2="";
-        $selected3="";
-    }
+    
     if($status=="Open")
     {
         $selected1="selected";
         $selected2="";
         $selected3="";  
     }
-    if($status=="Pending")
+    elseif($status=="Pending")
     {
         $selected2="selected";
         $selected1="";
         $selected3="";
     }
-    if($status=="Closed")
+    elseif($status=="Closed")
     {
         $selected3="selected";
         $selected2="";
         $selected1="";
+    }
+    else
+    {
+        $selected1="";
+        $selected2="";
+        $selected3="";
     }
 
 $hospital = $test['hospital'];
@@ -78,8 +79,35 @@ $enddatetimeView = date("Y-m-d\TH:i:s", strtotime($endDatetime));
 $actionTaken = $test['actionTaken'];
 $actualclosedDate = $test['actualclosedDate'];
 $justificationOutstanding = $test['justificationOutstanding'];
-
-
+$pendingJustification = $test['pendingJustification'];
+    if($pendingJustification=="Parts")
+    {
+        $selectedJustification1="selected";
+        $selectedJustification2="";
+        $selectedJustification3="";
+        $selectedJustification4="";  
+    }
+    elseif($pendingJustification=="Vendor")
+    {
+        $selectedJustification2="selected";
+        $selectedJustification1="";
+        $selectedJustification3="";
+        $selectedJustification4=""; 
+    }
+    elseif($pendingJustification=="CA/BER Report")
+    {
+        $selectedJustification3="selected";
+        $selectedJustification2="";
+        $selectedJustification1="";
+        $selectedJustification4=""; 
+    }
+    else
+    {
+        $selectedJustification3="";
+        $selectedJustification2="";
+        $selectedJustification1="";
+        $selectedJustification4="selected"; 
+    }
 $result->free();
 //mysqli_free_result($result);
 $db->close();

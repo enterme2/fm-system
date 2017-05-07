@@ -41,13 +41,8 @@ if($timeRequested=="00:00:00"){$timeRequested=NULL;}
 $targetdate = $test['targetdate'];
 $ageing = $test['ageing'];
 $status = $test['status'];
-if($status=="")
-    {
-        $selected1="";
-        $selected2="";
-        $selected3="";
-    }
-elseif ($status=="Open")
+
+if ($status=="Open")
     {
         $selected1="selected";
         $selected2="";
@@ -65,6 +60,12 @@ elseif ($status=="Closed")
         $selected2="";
         $selected1="";
     }
+else
+    {
+        $selected1="";
+        $selected2="";
+        $selected3="";
+    }
 $type = $test['type'];
 $assetNo = $test['assetNo'];
 $assetDesc = $test['assetDesc'];
@@ -81,7 +82,35 @@ $enddatetimeView = date("Y-m-d\TH:i:s", strtotime($endDatetime));
 $actionTaken = $test['actionTaken'];
 $actualclosedDate = $test['actualclosedDate'];
 $justificationOutstanding = $test['justificationOutstanding'];
-
+$pendingJustification = $test['pendingJustification'];
+    if($pendingJustification=="Asset Not Found")
+    {
+        $selectedJustification1="selected";
+        $selectedJustification2="";
+        $selectedJustification3="";
+        $selectedJustification4="";  
+    }
+    elseif($pendingJustification=="Asset Under Repair")
+    {
+        $selectedJustification2="selected";
+        $selectedJustification1="";
+        $selectedJustification3="";
+        $selectedJustification4=""; 
+    }
+    elseif($pendingJustification=="Reschedule")
+    {
+        $selectedJustification3="selected";
+        $selectedJustification2="";
+        $selectedJustification1="";
+        $selectedJustification4=""; 
+    }
+    else
+    {
+        $selectedJustification3="";
+        $selectedJustification2="";
+        $selectedJustification1="";
+        $selectedJustification4="selected"; 
+    }
 
 mysqli_free_result($result);
 mysqli_close($db);

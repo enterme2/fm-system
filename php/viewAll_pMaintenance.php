@@ -10,7 +10,7 @@ if (!$result)
   echo("Error description: " . mysqli_error($db));
   }
 
-$per_page = 20;
+$per_page = 10;
 $total_results = mysqli_num_rows($result);
 $total_pages = ceil($total_results / $per_page);
 if (isset($_GET['page']) && is_numeric($_GET['page']))

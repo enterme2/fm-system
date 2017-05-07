@@ -1,3 +1,17 @@
+function showSearch(){
+    var search = document.getElementById('searchInput');
+    var iconSearch = document.getElementById('searchIcon');
+    search.style.display = "block";
+    iconSearch.style.display = "none";
+}
+
+function hideSearch(){
+    var search = document.getElementById('searchInput');
+    var iconSearch = document.getElementById('searchIcon');
+    search.style.display = "none";
+    iconSearch.style.display = "block";
+}
+
 function showJustification(){
     
     var status = document.getElementById('status');

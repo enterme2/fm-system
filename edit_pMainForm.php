@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/mystyle.css">
 
 </head>
-<body>
+<body onload="showJustification();">
 
 
 <!-- Navbar -->
@@ -79,7 +79,7 @@
 
     <div class="w3-col m2 w3-padding-small">
       <label> Status :</label>
-      <select class="w3-select w3-border" name="status">
+      <select class="w3-select w3-border" name="status" id="status" onchange="showJustification();">
       <option value="Open" <?php echo $selected1 ?>>Open</option>
       <option value="Pending" <?php echo $selected2 ?>>Pending</option>
       <option value="Closed" <?php echo $selected3 ?>>Closed</option>
@@ -144,10 +144,12 @@
 
   <div class="w3-row w3-container" style="padding-top: 16px">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <!--
     <div class="w3-col m3 w3-padding-small">
       <label> Workgroup :</label>
       <input class="w3-input w3-border" type="text" name="workgroup" required value='<?php echo $workgroup ?>'>
     </div>
+    -->
 
     <div class="w3-col m5 w3-padding-small">
       <label> Details :</label>
@@ -183,12 +185,17 @@
   <div class="w3-row w3-container">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
     <div class="w3-col m4 w3-padding-small">
-      <label> Action Taken :</label>
-      <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="actionTaken"><?php echo $actionTaken ?></textarea>
-    </div>
-    <div class="w3-col m4 w3-padding-small">
       <label> Justification Outstanding :</label>
       <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="justificationOutstanding"><?php echo $justificationOutstanding ?></textarea>
+    </div>
+    <div class="w3-col m3 w3-padding-small" id="pendingInput" style="display: none;">
+      <label> Pending Justification :</label>
+      <select class="w3-select w3-border" name="pendingJustification">
+      <option value="" <?php echo $selectedJustification4 ?>>Select Justification</option>
+      <option value="Asset Not Found" <?php echo $selectedJustification1 ?>>Asset Not Found</option>
+      <option value="Asset Under Repair" <?php echo $selectedJustification2 ?>>Asset Under Repair</option>
+      <option value="Reschedule" <?php echo $selectedJustification3 ?>>Reschedule</option>
+    </select> 
     </div>
   </div>
 

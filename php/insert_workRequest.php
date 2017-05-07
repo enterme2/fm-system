@@ -19,10 +19,11 @@ $endDatetime = $_POST['endDatetime'];
 $actionTaken = $_POST['actionTaken'];
 $actualclosedDate = $_POST['actualclosedDate'];
 $justificationOutstanding = $_POST['justificationOutstanding'];
+$pendingJustification = $_POST['pendingJustification'];
 
 
 // Perform a query, check for error
-$action="INSERT INTO workrequest (hospital,wrNo,dateRequested,timeRequested,targetDate,status,requestor,category,assetNo,workgroup,details,startDatetime,endDatetime,actionTaken,actualclosedDate,justificationOutstanding) VALUES ('$hospital','$wrNo','$dateRequested','$timeRequested','$targetDate','$status','$requestor','$category','$assetNo','$workgroup','$details','$startDatetime','$endDatetime','$actionTaken','$actualclosedDate','$justificationOutstanding')";
+$action="INSERT INTO workrequest (hospital,wrNo,dateRequested,timeRequested,targetDate,status,requestor,category,assetNo,workgroup,details,startDatetime,endDatetime,actionTaken,actualclosedDate,justificationOutstanding,pendingJustification) VALUES ('$hospital','$wrNo','$dateRequested','$timeRequested','$targetDate','$status','$requestor','$category','$assetNo','$workgroup','$details','$startDatetime','$endDatetime','$actionTaken','$actualclosedDate','$justificationOutstanding','$pendingJustification')";
 
 $query=mysqli_query($db,$action);
 if (!$query)

@@ -145,25 +145,29 @@
       <label> Asset No :</label>
       <input class="w3-input w3-border" type="text" name="assetNo" required>  
     </div>
-
+    <!--
     <div class="w3-col m2 w3-padding-small">
       <label> Workgroup :</label>
       <input class="w3-input w3-border" type="text" name="workgroup">  
     </div>
+    -->
+    <input class="w3-input w3-border" type="hidden" name="workgroup" value="eFEMS">
   </div>
 
   <div class="w3-row w3-container">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
-    <div class="w3-col m4 w3-padding-small">
+    <div class="w3-col m8 w3-padding-small">
       <label> Details :</label>
       <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="details"></textarea>
     </div>
-    <div class="w3-col m4 w3-padding-small">
+  </div>
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m8 w3-padding-small">
       <label> Action Taken :</label>
       <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="actionTaken"></textarea>
     </div>
   </div>
-
   <div class="w3-row w3-container">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
     <div class="w3-col m3 w3-padding-small">

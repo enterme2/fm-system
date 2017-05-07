@@ -22,6 +22,7 @@ $endDatetime = $_POST['endDatetime'];
 $actionTaken = $_POST['actionTaken'];
 $actualclosedDate = $_POST['actualclosedDate'];
 $justificationOutstanding = $_POST['justificationOutstanding'];
+$pendingJustification = $_POST['pendingJustification'];
 
 
 $query="UPDATE preventivemaintenance SET 
@@ -42,7 +43,8 @@ startDatetime = '$startDatetime',
 endDatetime = '$endDatetime',
 actionTaken = '$actionTaken',
 actualclosedDate = '$actualclosedDate',
-justificationOutstanding = '$justificationOutstanding'
+justificationOutstanding = '$justificationOutstanding',
+pendingJustification = '$pendingJustification'
 WHERE id='$id' ";
 
 $query=mysqli_query($db,$query);

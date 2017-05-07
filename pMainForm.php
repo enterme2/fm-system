@@ -86,7 +86,7 @@
 
     <div class="w3-col m2 w3-padding-small">
       <label> Status :</label>
-      <select class="w3-select w3-border" name="status">
+      <select class="w3-select w3-border" name="status" id="status" onchange="showJustification();">
       <option value="Open">Open</option>
       <option value="Pending">Pending</option>
       <option value="Closed">Closed</option>
@@ -151,11 +151,14 @@
 
   <div class="w3-row w3-container" style="padding-top: 16px">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <!--
     <div class="w3-col m3 w3-padding-small">
       <label> Workgroup :</label>
       <input class="w3-input w3-border" type="text" name="workgroup" required value="eFEMS">  
     </div>
-
+    -->
+    <input class="w3-input w3-border" type="hidden" name="workgroup" value="eFEMS">
+    
     <div class="w3-col m5 w3-padding-small">
       <label> Details :</label>
       <input class="w3-input w3-border" type="text" name="details" value="Preventive Work Request">  
@@ -189,13 +192,26 @@
 
   <div class="w3-row w3-container">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
-    <div class="w3-col m4 w3-padding-small">
+    <div class="w3-col m8 w3-padding-small">
       <label> Action Taken :</label>
       <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="actionTaken"></textarea>
     </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
     <div class="w3-col m4 w3-padding-small">
       <label> Justification Outstanding :</label>
       <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="justificationOutstanding"></textarea>
+    </div>
+    <div class="w3-col m3 w3-padding-small" id="pendingInput" style="display: none;">
+      <label> Pending Justification :</label>
+      <select class="w3-select w3-border" name="pendingJustification">
+      <option value="" selected>Select Justification</option>
+      <option value="Asset Not Found">Asset Not Found</option>
+      <option value="Asset Under Repair">Asset Under Repair</option>
+      <option value="Reschedule">Reschedule</option>
+    </select> 
     </div>
   </div>
 

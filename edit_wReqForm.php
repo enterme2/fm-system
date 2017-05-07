@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/mystyle.css">
 
 </head>
-<body>
+<body onload="showJustification();">
 
 
 <!-- Navbar -->
@@ -145,19 +145,26 @@
       <input class="w3-input w3-border" type="text" name="assetNo" value='<?php echo $assetNo ?>'>  
     </div>
 
+    <!--
     <div class="w3-col m2 w3-padding-small">
       <label> Workgroup :</label>
       <input class="w3-input w3-border" type="text" name="workgroup" value='<?php echo $workgroup ?>'>  
+    </div>
+    -->
+    
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m8 w3-padding-small">
+      <label> Details :</label>
+      <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="details"><?php echo $details ?></textarea>
     </div>
   </div>
 
   <div class="w3-row w3-container">
     <div class="w3-col m2 w3-padding-small"><wbr></div>
-    <div class="w3-col m4 w3-padding-small">
-      <label> Details :</label>
-      <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="details"><?php echo $details ?></textarea>
-    </div>
-    <div class="w3-col m4 w3-padding-small">
+    <div class="w3-col m8 w3-padding-small">
       <label> Action Taken :</label>
       <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="actionTaken"><?php echo $actionTaken ?></textarea>
     </div>
@@ -189,10 +196,10 @@
     <div class="w3-col m3 w3-padding-small" id="pendingInput" style="display: none;">
       <label> Pending Justification :</label>
       <select class="w3-select w3-border" name="pendingJustification">
-      <option value="" selected>Select Justification</option>
-      <option value="Parts">Parts</option>
-      <option value="Vendor">Vendor</option>
-      <option value="CA/BER Report">CA/BER Report</option>
+      <option value="" <?php echo $selectedJustification4 ?>>Select Justification</option>
+      <option value="Parts" <?php echo $selectedJustification1 ?> >Parts</option>
+      <option value="Vendor"<?php echo $selectedJustification2 ?> >Vendor</option>
+      <option value="CA/BER Report" <?php echo $selectedJustification3 ?> >CA/BER Report</option>
     </select> 
     </div>
   </div>

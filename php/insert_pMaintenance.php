@@ -20,10 +20,11 @@ $endDatetime = $_POST['endDatetime'];
 $actionTaken = $_POST['actionTaken'];
 $actualclosedDate = $_POST['actualclosedDate'];
 $justificationOutstanding = $_POST['justificationOutstanding'];
+$pendingJustification = $_POST['pendingJustification'];
 
 
-$query="INSERT INTO preventivemaintenance (hospital,wrNo,dateRequested,timeRequested,targetdate,ageing,status,type,assetNo,assetDesc,workgroup,details,taskDesc,startDatetime,endDatetime,actionTaken,actualclosedDate,justificationOutstanding) VALUES ('$hospital',
-'$wrNo','$dateRequested','$timeRequested','$targetdate','$ageing','$status','$type','$assetNo','$assetDesc','$workgroup','$details','$taskDesc','$startDatetime','$endDatetime','$actionTaken','$actualclosedDate','$justificationOutstanding')";
+$query="INSERT INTO preventivemaintenance (hospital,wrNo,dateRequested,timeRequested,targetdate,ageing,status,type,assetNo,assetDesc,workgroup,details,taskDesc,startDatetime,endDatetime,actionTaken,actualclosedDate,justificationOutstanding,pendingJustification) VALUES ('$hospital',
+'$wrNo','$dateRequested','$timeRequested','$targetdate','$ageing','$status','$type','$assetNo','$assetDesc','$workgroup','$details','$taskDesc','$startDatetime','$endDatetime','$actionTaken','$actualclosedDate','$justificationOutstanding','$pendingJustification')";
 
 $query=mysqli_query($db,$query);
  
