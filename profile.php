@@ -11,7 +11,7 @@ include('php/session.php');
 <link rel="stylesheet" href="css/w3-theme-blue.css">
 <link rel="stylesheet" href="css/font-awesome.css">
 <script src="js/togglecontent.js"></script>
-<script src="js/sidebar.js"></script>
+
 </head>
 <body>
 
@@ -23,11 +23,12 @@ include('php/session.php');
     <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">AWS</a>
     <a href="#" class="w3-bar-item w3-button w3-hover-white w3-mobile w3-hide-small">Home</a>
     <a href="php/logout.php" class="w3-bar-item w3-button w3-hover-white w3-mobile w3-right w3-theme-l1 w3-mobile">Logout</a>
-    <div id="searchInput" class="w3-animate-right" style="display: none;">
+    <div id="searchInput" style="display: none;">
     <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" onclick="hideSearch()">&times</button>
-    <form>
+    <form action="search.php" method="GET">
         <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" type="submit" value="Search"><i class="fa fa-search"></i></button>
-        <input class="w3-bar-item w3-cyan w3-input w3-text-white w3-right" type="text" name="query" id="query" />
+        <input class="w3-bar-item w3-cyan w3-input w3-text-white w3-right" type="search" name="query" id="query" />
+        <button class="w3-bar-item w3-ripple w3-theme w3-right" type="reset" style=""><i class="fa fa-eraser"></i></button>
     </form>
     </div>
     <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" id="searchIcon" onclick="showSearch();"><i class="fa fa-search"></i></button>
@@ -92,6 +93,6 @@ include('php/session.php');
 
 
 
-
+<script src="js/sidebar.js"></script>
 </body>
 </html>

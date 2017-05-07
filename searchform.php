@@ -7,7 +7,7 @@
 </head>
 <body>
     <form action="search.php" method="GET">
-        <input type="text" name="query" id="query" />
+        <input type="search" name="query" id="query" />
         <button type="submit" value="Search" >Search</button>
     </form>
 </body>
