@@ -78,7 +78,7 @@ $end = $per_page;
     return $row[$field];
 }
 
-  function calculateAging($result, $iRow, $field = 0)
+  function calculateAging($result, $iRow, $field = 0,$field2 = 0)
 {
     if(!mysqli_data_seek($result, $iRow))
         return false;
@@ -86,15 +86,24 @@ $end = $per_page;
         return false;
     if(!array_key_exists($field, $row))
         return false;
-
-    if($row[$field]=="0000-00-00")
-      { $dateNotSet="";
-        return $dateNotSet;}
-    else {
-    date_default_timezone_set("Asia/Kuala_Lumpur");
-    $current=date('d-M-Y H:i:s');
-    $days = (strtotime($current) - strtotime($row[$field])) / (60 * 60 * 24);
-    return ceil($days);
+    if ($row[$field2]=="Closed")
+    {
+      $aging=0;
+      return $aging;
+    }
+    else
+    {
+      if($row[$field]=="0000-00-00")
+        { 
+          $dateNotSet="";
+          return $dateNotSet;
+        }
+      else {
+      date_default_timezone_set("Asia/Kuala_Lumpur");
+      $current=date('d-M-Y H:i:s');
+      $days = (strtotime($current) - strtotime($row[$field])) / (60 * 60 * 24);
+      return ceil($days);
+      }
     }
 }
 $j=1;
@@ -113,7 +122,7 @@ if ($i == $total_results) { break; }
   	echo '<td>' . mysqli_result($result, $i, 'wrNo') . '</td>';
     echo '<td>' . mysqli_result($result, $i, 'dateRequested','timeRequested') . '</td>';
   	echo '<td>' . mysqli_result($result, $i, 'status') . '</td>';
-  	echo '<td align="center">' . calculateAging($result, $i, 'dateRequested') . '</td>';
+  	echo '<td align="center">' . calculateAging($result, $i, 'dateRequested','status') . '</td>';
   	echo '<td><a href="edit_pMainForm.php?id=' . mysqli_result($result, $i, 'ID') . '">Edit</a></td>';
   	echo '<td><a href="php/delete_preventiveMaintenance.php?id=' . mysqli_result($result, $i, 'ID') . '">Delete</a></td>';
   	$j++;

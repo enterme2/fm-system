@@ -2,6 +2,7 @@
 include('connect.php');
 session_start(); // Starting Session
 $error=NULL; // Variable To Store Error Message
+$detectError= FALSE;
 
 if (isset($_POST['submit'])) 
 	{
@@ -12,6 +13,7 @@ if (isset($_POST['submit']))
 	else
 	{
 	// Define $username and $password
+	$detectError=FALSE;
 	$username=$_POST['username'];
 	$password=$_POST['password'];
 	// Establishing Connection with Server by passing server_name, user_id and password as a parameter
@@ -28,12 +30,14 @@ if (isset($_POST['submit']))
 	$query = mysqli_query($db,"SELECT * FROM employees WHERE password='$password' AND username='$username'");
 	$rows = mysqli_num_rows($query);
 	if ($rows == 1) {
+	$detectError=FALSE;
 	$_SESSION['login_user']=$username; // Initializing Session
 	header("location: profile.php"); // Redirecting To Other Page
-	} else {
-
+	} 
+	else {
+	$detectError=TRUE;
 	$error = "Username or Password is invalid";
-	echo "<script type='text/javascript'>alert('$error');</script>";
+	//echo "<script type='text/javascript'>alert('$detectError');</script>";
 	}
 	mysqli_close($db); // Closing Connection
 	}

@@ -1,57 +1,83 @@
-
- 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Search results</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+<title>Search Result</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/w3-theme-blue.css">
+<link rel="stylesheet" href="css/font-awesome.css">
+<script src="js/togglecontent.js"></script>
 </head>
 <body>
-<?php
-	include('php/connect.php');
-    $query = $_GET['query']; 
-    // gets value sent over search form
-     
-    $min_length = 3;
-    // you can set minimum length of the query if you want
-     
-    if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
-         
-        $query = htmlspecialchars($query); 
-        // changes characters used in html to their equivalents, for example: < to &gt;
-         
-        $query = mysqli_real_escape_string($db,$query);
-        // makes sure nobody uses SQL injection
-         
-        $raw_results = mysqli_query($db,"SELECT * FROM workrequest
-            WHERE (`hospital` LIKE '%".$query."%') OR (`wrNo` LIKE '%".$query."%')") or die(mysql_error());
-             
-        // * means that it selects all fields, you can also write: `id`, `title`, `text`
-        // articles is the name of our table
-         
-        // '%$query%' is what we're looking for, % means anything, for example if $query is Hello
-        // it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
-        // or if you want to match just full word so "gogohello" is out use '% $query %' ...OR ... '$query %' ... OR ... '% $query'
-         
-        if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-             
-            while($results = mysqli_fetch_array($raw_results,MYSQLI_ASSOC)){
-            // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-             
-                echo "<p><h3>".$results['hospital']."</h3>".$results['wrNo']."</p>";
-                // posts results gotten from database(title and text) you can also show id ($results['id'])
-            }
-             
-        }
-        else{ // if there is no matching rows do following
-            echo "No results";
-        }
-         
-    }
-    else{ // if query length is less than minimum
-        echo "Minimum length is ".$min_length;
-    }
-?>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <img class="w3-left" src="img/AWS Sdn Bhd Logo2.jpg" alt="AWS Logo" style="width:100px;height:42.5px;">
+    <a href="#" class="w3-bar-item w3-button w3-hover-white w3-mobile w3-hide-small">Home</a>
+    <a href="php/logout.php" class="w3-bar-item w3-button w3-hover-white w3-mobile w3-right w3-theme-l1 w3-mobile">Logout</a>
+    <div id="searchInput" style="display: none;">
+    <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" onclick="hideSearch()">&times</button>
+    <form action="search.php" method="GET">
+        <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" type="submit" value="Search"><i class="fa fa-search"></i></button>
+        <input class="w3-bar-item w3-cyan w3-input w3-text-white w3-right" type="search" name="query" id="query" />
+        <button class="w3-bar-item w3-ripple w3-theme w3-right" type="reset" style=""><i class="fa fa-eraser"></i></button>
+    </form>
+    </div>
+    <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" id="searchIcon" onclick="showSearch();"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Work Request
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a class="w3-bar-item w3-button w3-hover-black" href="wReqForm.php">Add Work Request</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="showAll_wRequest.php?page=1">Show Work Request</a>
+    </div>
+  </div> 
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Preventive <br>Maintenance
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a class="w3-bar-item w3-button w3-hover-black" href="pMainForm.php">Add Preventive Maintenance Work</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="showAll_pMaintenance.php">Show Preventive Maintenance Work</a>
+    </div>
+  </div>
+
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Complaint
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a class="w3-bar-item w3-button w3-hover-black" href="complaintForm.php">Add Complaint</a>
+      <a class="w3-bar-item w3-button w3-hover-black" href="showAll_complaint.php">Show Complaint</a>
+    </div>
+  </div>  
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!--content-->
+<div class="w3-main" style="margin-left:250px">
+  <div class="w3-row w3-padding-64">    
+    <div class="w3-twothird w3-container">
+    <h1 class="w3-text-teal">Search Results <i class="fa fa-search"></i> </h1>
+    <?php include('php/searchResult.php'); ?>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

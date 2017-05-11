@@ -19,7 +19,7 @@ header("location: profile.php");
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
-    <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">AWS</a>
+    <img class="w3-left" src="img/AWS Sdn Bhd Logo2.jpg" alt="AWS Logo" style="width:100px;height:42.5px;">
     <a href="index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
   </div>
 </div>

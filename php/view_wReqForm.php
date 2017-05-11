@@ -64,6 +64,10 @@ $timeRequested = $test['timeRequested'];
 if($timeRequested=="00:00:00"){$timeRequested=NULL;}
 
 $targetDate = $test['targetDate'];
+if ($targetDate=="0000-00-00")
+{ $targetDateView=NULL; }
+else{ $targetDateView = date("Y-m-d", strtotime($targetDate)); }
+
 $status = $test['status'];
 $requestor = $test['requestor'];
 $category = $test['category'];
@@ -78,6 +82,10 @@ $enddatetimeView = date("Y-m-d\TH:i:s", strtotime($endDatetime));
 
 $actionTaken = $test['actionTaken'];
 $actualclosedDate = $test['actualclosedDate'];
+if ($actualclosedDate=="0000-00-00")
+{ $actualclosedDateView=NULL; }
+else{ $actualclosedDateView = date("Y-m-d", strtotime($actualclosedDate)); }
+
 $justificationOutstanding = $test['justificationOutstanding'];
 $pendingJustification = $test['pendingJustification'];
     if($pendingJustification=="Parts")

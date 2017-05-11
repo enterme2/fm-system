@@ -19,7 +19,7 @@
 <div class="w3-top">
   <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">AWS</a>
+    <img class="w3-left" src="img/AWS Sdn Bhd Logo2.jpg" alt="AWS Logo" style="width:100px;height:42.5px;">
     <a href="#" class="w3-bar-item w3-button w3-hover-white w3-mobile w3-hide-small">Home</a>
     <a href="php/logout.php" class="w3-bar-item w3-button w3-hover-white w3-right w3-theme-l1">Logout</a>
   </div>
@@ -79,7 +79,7 @@
 
     <div class="w3-col m2 w3-padding-small">
       <label> Status :</label>
-      <select class="w3-select w3-border" name="status" id="status" onchange="showJustification();">
+      <select class="w3-select w3-border" name="status" id="status" onchange="showJustification();requireAction();">
       <option value="Open" <?php echo $selected1 ?>>Open</option>
       <option value="Pending" <?php echo $selected2 ?>>Pending</option>
       <option value="Closed" <?php echo $selected3 ?>>Closed</option>
@@ -117,7 +117,7 @@
     
     <div class="w3-col m3 w3-padding-small">
       <label> Target Date :</label>
-      <input class="w3-input w3-border" type="date" name="targetDate" value='<?php echo $targetDate ?>'>  
+      <input class="w3-input w3-border" type="date" name="targetdate" value='<?php echo $targetdateView ?>'>  
     </div>
   </div>
 
@@ -169,16 +169,24 @@
     <div class="w3-col m2 w3-padding-small"><wbr></div>
     <div class="w3-col m3 w3-padding-small">
       <label> Start Date/Time :</label>
-      <input class="w3-input w3-border" type="datetime-local" name="startDatetime" value='<?php echo $startDatetime ?>'>  
+      <input class="w3-input w3-border" type="datetime-local" name="startDatetime" value='<?php echo $startdatetimeView ?>'>  
     </div>
 
     <div class="w3-col m3 w3-padding-small">
       <label> End Date/Time :</label>
-      <input class="w3-input w3-border" type="datetime-local" name="endDatetime" value='<?php echo $endDatetime ?>'>  
+      <input class="w3-input w3-border" type="datetime-local" name="endDatetime" value='<?php echo $enddatetimeView ?>'>  
     </div>
     <div class="w3-col m3 w3-padding-small">
       <label> Actual Closed Date:</label>
-      <input class="w3-input w3-border" type="date" name="actualclosedDate" style="width: 180px" value='<?php echo $actualclosedDate ?>'>  
+      <input class="w3-input w3-border" type="date" name="actualclosedDate" style="width: 180px" value='<?php echo $actualclosedDateView ?>'>  
+    </div>
+  </div>
+
+  <div class="w3-row w3-container">
+    <div class="w3-col m2 w3-padding-small"><wbr></div>
+    <div class="w3-col m8 w3-padding-small">
+      <label> Action Taken :</label>
+      <textarea class="w3-input w3-border" rows="3" style="resize: none;"  input type="text" name="actionTaken" id="actionTaken"><?php echo $actionTaken ?></textarea>
     </div>
   </div>
 

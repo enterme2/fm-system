@@ -1,3 +1,17 @@
+ function showLogin(){
+
+  var detectError = document.getElementById('detectError').value;
+  var loginModal = document.getElementById('loginform');
+  if (detectError=="1")
+  {
+    loginModal.style.display="block";
+  }
+  else
+  {
+    loginModal.style.display="none";
+  }
+}
+
 function showSearch(){
     var search = document.getElementById('searchInput');
     var iconSearch = document.getElementById('searchIcon');
@@ -27,6 +41,25 @@ function showJustification(){
         justificationInput.style.display="none";
     }
   }
+
+function requireAction(){
+  var status = document.getElementById('status');
+  var value = status.options[status.selectedIndex].value;
+
+  var action = document.getElementById('actionTaken');
+    if(value=="Closed")
+    {
+      //action.setAttribute("required", ""); 
+      action.required = true;
+    }
+    else
+    {
+        //action.removeAttribute("required");
+        action.required = false;
+    }
+  }
+
+
 
 /*
 function toggle(showHideDiv, switchIcon) {

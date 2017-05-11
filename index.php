@@ -13,17 +13,17 @@ if(isset($_SESSION['login_user']))
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="css/w3-theme-blue.css">
 <link rel="stylesheet" href="css/font-awesome.css">
-
+<script type="text/javascript" src="js/togglecontent.js"></script>
 </head>
-<body>
-
+<body onload="showLogin();">
+<!--<img class="w3-left-align" src="img/AWS Sdn Bhd Logo.PNG" alt="AWS Logo" style="max-width: 50%;max-width: 50%;">-->
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a href="index.php" class="w3-bar-item w3-button w3-theme-l1">AWS</a>
+    <img class="w3-left" src="img/AWS Sdn Bhd Logo2.jpg" alt="AWS Logo" style="width:100px;height:42.5px;">
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
-    <a onclick="document.getElementById('loginform').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">Login</a>
+    <a onclick="document.getElementById('loginform').style.display='block'" class="w3-bar-item w3-button w3-hover-white w3-right">Login</a>
   </div>
 </div>
 
@@ -53,7 +53,7 @@ if(isset($_SESSION['login_user']))
       <p>Restricted to employees only.</p>
       <!--<button class="w3-button w3-round w3-theme w3-hover-aqua" onclick="window.location='loginForm.php'">Enter</button>-->
     </div>
-
+<input type="hidden" id="detectError" value="<?php echo $detectError ?>" />
 <div id="loginform" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
@@ -82,6 +82,6 @@ if(isset($_SESSION['login_user']))
 </div>
 
 
-<script src="js/sidebar.js"></script>
+<script type="text/javascript" src="js/sidebar.js"></script>
 </body>
 </html> 
