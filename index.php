@@ -55,13 +55,16 @@ if(isset($_SESSION['login_user']))
     </div>
 <input type="hidden" id="detectError" value="<?php echo $detectError ?>" />
 <div id="loginform" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
-      <div class="w3-center"><br>
-        <span onclick="document.getElementById('loginform').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close">&times;</span>
+    <div class="w3-modal-content w3-round w3-card-4 w3-animate-zoom" style="max-width:400px">
+      <div class="w3-center w3-padding-32 w3-container">
+        <img class="w3-round w3-image" src="img/AWS Sdn Bhd Logo3.jpg" style="width:100%;max-width:300px;max-height: 200px;">
       </div>
 
-      <form class="w3-container" method="post" action="">
+        <span onclick="document.getElementById('loginform').style.display='none'" class="w3-button w3-circle w3-large w3-hover-red w3-display-topright w3-ripple" title="Close"><i class="fa fa-times"></i></span>
+
+
+      <form class="w3-container" method="POST" action="">
         <div class="w3-section">
           <label><b>Username</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="username" id="username" required>
@@ -72,7 +75,7 @@ if(isset($_SESSION['login_user']))
         </div>
       </form>
 
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey"></div>
+      <!--<div class="w3-container w3-border-top w3-padding-16 w3-light-grey"></div>-->
 
     </div>
   </div>

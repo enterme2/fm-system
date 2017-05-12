@@ -27,7 +27,7 @@ include('php/session.php');
     <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" onclick="hideSearch()">&times</button>
     <form action="search.php" method="GET">
         <button class="w3-bar-item w3-button w3-theme w3-right w3-hover-white" type="submit" value="Search" ><i class="fa fa-search"></i></button>
-        <input class="w3-bar-item w3-cyan w3-input w3-text-white w3-right" type="search" name="query" id="query" placeholder="Enter hospital/WR-No" />
+        <input class="w3-bar-item w3-cyan w3-input w3-text-white w3-right" type="search" name="query" id="query" placeholder="Enter Hospital/WR-No" />
         <button class="w3-bar-item w3-ripple w3-theme w3-right" type="reset" style=""><i class="fa fa-eraser"></i></button>
     </form>
     </div>
